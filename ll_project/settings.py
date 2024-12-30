@@ -21,6 +21,14 @@ ALLOWED_HOSTS = []
 # INSTALLED_APPS 列表定义了项目中安装和启用的应用程序，这里列出了一些 Django 内置的应用程序
 # 如管理网站、认证系统、会话管理、消息框架和静态文件处理。
 INSTALLED_APPS = [
+    # 我的应用程序
+    'learning_logs',
+    'accounts',
+    
+    # 第三方应用程序
+    'django_bootstrap5',
+    
+    # Django默认的应用程序
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -136,3 +144,8 @@ STATIC_URL = "static/"
 
 # DEFAULT_AUTO_FIELD 设置了默认的主键字段类型
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+#* 我的设置
+LOGIN_REDIRECT_URL = 'learning_logs:index'
+LOGOUT_REDIRECT_URL = 'learning_logs:index'
+LOGIN_URL = 'accounts:login'

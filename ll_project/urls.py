@@ -14,9 +14,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# django.contrib.admin 是 Django 的管理员模块，提供了一个管理后台
+from django.contrib import admin 
+# django.urls.path 是一个用于定义 URL 路径的函数
+from django.urls import path, include
 
-from django.contrib import admin # django.contrib.admin 是 Django 的管理员模块，提供了一个管理后台
-from django.urls import path # django.urls.path 是一个用于定义 URL 路径的函数
 
 """
 urlpatterns 列表定义了 URL 路由配置：
@@ -24,4 +26,6 @@ path("admin/", admin.site.urls) 定义了一个 URL 路径，当访问 /admin/ �
 """
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('accounts/',include('accounts.urls')),
+    path('',include('learning_logs.urls')),
 ]
